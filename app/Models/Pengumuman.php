@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 class Pengumuman extends Model
 {
     protected $table = 'pengumuman';
-    protected $fillable = ['judul', 'konten', 'gambar', 'tgl_posting', 'user'];
+    protected $fillable = ['kategori', 'judul', 'konten', 'gambar', 'tgl_posting', 'user', 'status'];
 }

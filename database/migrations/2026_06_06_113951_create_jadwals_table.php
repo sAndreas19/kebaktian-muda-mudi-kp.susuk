@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('gambar')->nullable();
             $table->date('tgl_posting')->nullable();
             $table->string('user')->nullable();
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }

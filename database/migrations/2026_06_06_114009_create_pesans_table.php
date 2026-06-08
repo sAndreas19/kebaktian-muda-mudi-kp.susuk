@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('email');
             $table->string('hp');
             $table->text('pesan');
+            $table->string('keterangan')->default('0');
             $table->timestamp('tanggal')->useCurrent();
             $table->timestamps();
         });
