@@ -1,0 +1,186 @@
+/* your styles go here */
+/* Custom CSS untuk menengahkan login form */
+
+/* Styling Halaman Login */
+html, body {
+    height: 100%;
+}
+
+.login-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.login-page .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.login-page .form-outer {
+    width: 100%;
+    max-width: 450px;
+    margin: 0 auto;
+}
+
+.login-page .form-inner {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.login-page .logo {
+    margin-bottom: 30px;
+    font-size: 28px;
+    font-weight: 700;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.login-page .logo .text-primary {
+    color: #4CAF50 !important;
+    background: linear-gradient(45deg, #4CAF50, #45a049);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.login-page .form-group-material {
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.login-page .input-material {
+    width: 100%;
+    padding: 15px 0;
+    border: none;
+    border-bottom: 2px solid #e1e1e1;
+    background: transparent;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.login-page .input-material:focus {
+    outline: none;
+    border-bottom-color: #4CAF50;
+}
+
+.login-page .label-material {
+    position: absolute;
+    top: 15px;
+    left: 0;
+    color: #999;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.login-page .input-material:focus + .label-material,
+.login-page .input-material:valid + .label-material {
+    top: -5px;
+    font-size: 12px;
+    color: #4CAF50;
+    font-weight: 600;
+}
+
+/* Button styling */
+.login-page .btn-primary {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(45deg, #4CAF50, #45a049);
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+}
+
+.login-page .btn-primary:hover {
+    background: linear-gradient(45deg, #45a049, #3d8b40);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+}
+
+.login-page .btn-primary:active {
+    transform: translateY(0);
+}
+
+/* Links styling */
+.login-page p a,
+.login-page h5 a {
+    color: #4CAF50;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.login-page p a:hover,
+.login-page h5 a:hover {
+    color: #45a049;
+    text-decoration: underline;
+}
+
+.login-page h5 {
+    margin-top: 15px;
+    text-align: center;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .login-page .form-inner {
+        padding: 30px 25px;
+        margin: 20px;
+    }
+    
+    .login-page .logo {
+        font-size: 24px;
+        margin-bottom: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-page .form-inner {
+        padding: 25px 20px;
+    }
+    
+    .login-page .logo {
+        font-size: 20px;
+    }
+}
+
+/* Animation untuk form */
+.login-page .form-inner {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hover effect untuk form */
+.login-page .form-inner:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
