@@ -48,7 +48,7 @@
 </style>
 
 <div class="home">
-    <div class="home_background parallax-window" data-parallax="scroll" data-image-src="{{ asset('img/slide/kebersamaan2.png') }}" data-speed="0.8"></div>
+    <div class="home_background parallax-window" data-parallax="scroll" data-image-src="{{ asset('img/slide/salib_digunung.jpg') }}" data-speed="0.8"></div>
     <div class="home_container">
         <div class="container">
             <div class="row">

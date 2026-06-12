@@ -21,6 +21,12 @@ class HomeController extends Controller
         // For today's devotional
         $renunganHariIni = Renungan::whereDate('tanggal', Carbon::today())->first();
 
-        return view('welcome', compact('jadwals', 'recentJadwals', 'renunganHariIni'));
+        // Jadwal terdekat untuk bagian "Datang dan Hadirilah"
+        $jadwalTerdekat = Jadwal::whereDate('tgl_posting', '>=', Carbon::today())->orderBy('tgl_posting', 'asc')->first();
+        if (!$jadwalTerdekat) {
+            $jadwalTerdekat = Jadwal::orderBy('tgl_posting', 'desc')->first();
+        }
+
+        return view('welcome', compact('jadwals', 'recentJadwals', 'renunganHariIni', 'jadwalTerdekat'));
     }
 }

@@ -92,7 +92,7 @@
             <div class="row">
                 
                 <!-- Box -->
-                <div class="col-lg-8 box_col">
+                <div class="col-lg-12 box_col">
                     <div class="box working_hours">
                         <div class="box_icon d-flex flex-column align-items-start justify-content-center"><div style="width:29px; height:29px;"><img src="{{ asset('images/alarm-clock.svg') }}" alt=""></div></div>
                         <div class="box_title">DATANG DAN HADIRLAH</div>
@@ -106,28 +106,6 @@
                                 </li>
                             </ul>
                         </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 box_col">
-                    <div class="box box_emergency">
-                        <div class="box_icon d-flex flex-column align-items-start justify-content-center"><div style="width: 37px; height:37px; margin-left:-4px;"><img src="{{ asset('images/phone-call.svg') }}" alt=""></div></div>
-                        <div class="box_title">Emergency Konseling</div>
-                        <div class="box_emergency_text">Ps. Jayanta Bangun</div>
-
-                        <a href="https://api.whatsapp.com/send?phone=6285277948885&amp;text=Hallo%20Saudara/i%20terkasih%20dalam%20nama%20Tuhan%20Yesus%20Nama%20:%20,%20Saya%20:%20...">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-whatsapp fa-stack-1x fa-inverse"></i>
-                            </span>Wa : +62 813-7572-2746
-                        </a> 
-                        <br>
-                        <a href="tel:085277948885">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-phone fa-stack-1x fa-inverse"></i>
-                            </span>Call : +62 813-7572-2746
-                        </a> 
                     </div>
                 </div>
 
@@ -161,7 +139,7 @@
 
                 <!-- About Image -->
                 <div class="col-lg-5">
-                    <div class="about_image"><img src="{{ asset('img/slide/perpuluhan.jpg') }}" alt=""></div>
+                    <div class="about_image"><img src="{{ asset('img/slide/alkitab.png') }}" alt=""></div>
                 </div>
             </div>
         </div>
@@ -180,9 +158,9 @@
                 <!-- Service -->
                 @foreach($jadwals as $data)
                 <div class="col-lg-4 col-md-6 service_col">
-                    <div class="service text-center trans_200">
+                    <div class="service text-center trans_200" @if($data->flyer) style="background-image: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('{{ asset('img/blog/' . $data->flyer) }}'); background-size: cover; background-position: center; border-radius: 8px;" @endif>
                         <div class="service_icon"><img class="svg" src="{{ asset('images/alarm-clock.svg') }}" alt=""></div>
-                        <div class="service_title trans_200">{{ $data->kategori }}</div>
+                        <div class="service_title trans_200"><strong>{{ $data->kategori }}</strong></div>
                         <div class="service_text">
                             <div class="service_title trans_200">{{ $data->judul }}</div>
                         </div>
@@ -197,19 +175,22 @@
 
 <!-- Call to action -->
 <div class="cta">
-    <div class="cta_background parallax-window" data-parallax="scroll" data-image-src="{{ asset('img/slide/pdtdomi.jpg') }}" data-speed="0.8"></div>
+    <div class="cta_background parallax-window" data-parallax="scroll" data-image-src="{{ asset('img/slide/salib_digunung.jpg') }}" data-speed="0.8"></div>
     <div class="container">
         <div class="row">
             <div class="col">
                 <div class="cta_content text-center">
                     <h2>Datang dan Hadirilah</h2>
-                    <p>Ibadah Kebaktian Minggu ini dengan tema:</p>
-                    <p>Don't Quit</p>
-                    <div class="button cta_button"><a href="{{ url('kegiatan') }}">Selengkapnya</a></div>
+                    @if($jadwalTerdekat)
+                    <p>{{ $jadwalTerdekat->judul }}</p>
+                    <div class="button cta_button"><a href="{{ url('jadwal/' . $jadwalTerdekat->id) }}">Selengkapnya</a></div>
+                    @else
+                    <p>Belum ada jadwal terbaru</p>
+                    @endif
                 </div>
             </div>
         </div>
-    </div>      
+    </div>
 </div>
 
 @push('scripts')
