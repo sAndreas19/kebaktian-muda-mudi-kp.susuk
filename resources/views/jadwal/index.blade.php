@@ -40,7 +40,7 @@
                     @foreach($jadwals as $data)
                     <div class="news_post">
                         <div class="news_image">
-                            <img src="{{ asset('img/blog/' . $data->gambar) }}" alt="">
+                            <img src="{{ asset('img/blog/' . $data->flyer) }}" alt="">
                             <div class="news_date d-flex flex-column align-items-center justify-content-center">
                                 <div class="news_day">Jadwal</div>
                                 <div class="news_month">{{ \Carbon\Carbon::parse($data->tgl_posting)->format('d M') }}</div>

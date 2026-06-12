@@ -28,9 +28,19 @@ class JadwalController extends Controller
             'tgl_posting' => 'nullable|date',
             'user' => 'nullable|string',
             'status' => 'nullable|string',
+            'flyer' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        Jadwal::create($request->all());
+        $data = $request->all();
+
+        if ($request->hasFile('flyer')) {
+            $flyer = $request->file('flyer');
+            $flyerName = time() . '_flyer_' . $flyer->getClientOriginalName();
+            $flyer->move(public_path('img/blog'), $flyerName);
+            $data['flyer'] = $flyerName;
+        }
+
+        Jadwal::create($data);
 
         return redirect()->route('admin.jadwal.index')->with('success', 'Jadwal berhasil ditambahkan');
     }
@@ -50,10 +60,25 @@ class JadwalController extends Controller
             'tgl_posting' => 'nullable|date',
             'user' => 'nullable|string',
             'status' => 'nullable|string',
+            'flyer' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         $jadwal = Jadwal::findOrFail($id);
-        $jadwal->update($request->all());
+        $data = $request->all();
+
+        if ($request->hasFile('flyer')) {
+            $flyer = $request->file('flyer');
+            $flyerName = time() . '_flyer_' . $flyer->getClientOriginalName();
+            $flyer->move(public_path('img/blog'), $flyerName);
+            $data['flyer'] = $flyerName;
+            
+            // Delete old flyer if exists
+            if ($jadwal->flyer && file_exists(public_path('img/blog/' . $jadwal->flyer))) {
+                unlink(public_path('img/blog/' . $jadwal->flyer));
+            }
+        }
+
+        $jadwal->update($data);
 
         return redirect()->route('admin.jadwal.index')->with('success', 'Jadwal berhasil diupdate');
     }
@@ -61,6 +86,12 @@ class JadwalController extends Controller
     public function destroy($id)
     {
         $jadwal = Jadwal::findOrFail($id);
+
+        // Hapus file flyer fisik jika ada
+        if ($jadwal->flyer && file_exists(public_path('img/blog/' . $jadwal->flyer))) {
+            unlink(public_path('img/blog/' . $jadwal->flyer));
+        }
+
         $jadwal->delete();
 
         return redirect()->route('admin.jadwal.index')->with('success', 'Jadwal berhasil dihapus');

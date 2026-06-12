@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Jadwal extends Model
 {
-    protected $fillable = ['judul', 'kategori', 'konten', 'gambar', 'tgl_posting', 'user', 'status'];
+    protected $fillable = ['judul', 'kategori', 'konten', 'flyer', 'tgl_posting', 'user', 'status'];
 }

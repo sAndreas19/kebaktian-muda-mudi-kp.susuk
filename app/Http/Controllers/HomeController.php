@@ -5,17 +5,22 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Jadwal;
 use App\Models\Kegiatan;
+use App\Models\Renungan;
+use Carbon\Carbon;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        // For the homepage activities
-        $jadwals = Kegiatan::limit(200)->get();
+        // For the homepage activities (preview)
+        $jadwals = Jadwal::orderBy('tgl_posting', 'desc')->limit(6)->get();
 
         // For the footer recent schedule (latest 5 jadwals)
-        $recentBlogs = Jadwal::orderBy('tgl_posting', 'desc')->limit(5)->get();
+        $recentJadwals = Jadwal::orderBy('tgl_posting', 'desc')->limit(5)->get();
 
-        return view('welcome', compact('jadwals', 'recentBlogs'));
+        // For today's devotional
+        $renunganHariIni = Renungan::whereDate('tanggal', Carbon::today())->first();
+
+        return view('welcome', compact('jadwals', 'recentJadwals', 'renunganHariIni'));
     }
 }

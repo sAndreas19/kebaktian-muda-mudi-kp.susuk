@@ -52,6 +52,12 @@
                             <input type="text" name="user" class="form-control is-valid" placeholder="Nama Posting" value="{{ old('user', 'Admin') }}">
                         </div>
                     </div>
+                    <div class="form-group row has-success">
+                        <label class="col-sm-2 form-control-label">FLYER (FOTO)</label>
+                        <div class="col-sm-10">
+                            <input type="file" name="flyer" class="form-control is-valid">
+                        </div>
+                    </div>
 
                     <button type="submit" class="btn btn-primary">SIMPAN JADWAL</button>
                     <a href="{{ route('admin.jadwal.index') }}" class="btn btn-secondary">KEMBALI</a>

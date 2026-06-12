@@ -166,11 +166,11 @@
                         <div class="footer_news footer_column">
                             <div class="footer_title">Jadwal Terbaru</div>
                             <ul>
-                                @if(isset($recentBlogs))
-                                    @foreach($recentBlogs as $blog)
+                                @if(isset($recentJadwals))
+                                    @foreach($recentJadwals as $jadwalItem)
                                     <li>
-                                        <div class="footer_news_title"><a href="{{ url('jadwal/' . $blog->id) }}">{{ $blog->judul }}</a></div>
-                                        <a href="{{ url('jadwal/' . $blog->id) }}">Baca Selengkapnya </a>
+                                        <div class="footer_news_title"><a href="{{ url('jadwal/' . $jadwalItem->id) }}">{{ $jadwalItem->judul }}</a></div>
+                                        <a href="{{ url('jadwal/' . $jadwalItem->id) }}">Baca Selengkapnya </a>
                                     </li>
                                     @endforeach
                                 @endif

@@ -18,14 +18,13 @@ return new class extends Migration
             $table->text('konten')->nullable();
             $table->string('gambar')->nullable();
             $table->date('tgl_posting')->nullable();
-            $table->string('user')->nullable();
+            $table->string('user')->nullable(); 
             $table->string('status')->nullable();
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
+    /**     * Reverse the migrations.
      */
     public function down(): void
     {

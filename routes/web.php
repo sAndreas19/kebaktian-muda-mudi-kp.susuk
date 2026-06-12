@@ -24,7 +24,6 @@ Route::post('/logout', function () {
 
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', [\App\Http\Controllers\Admin\AdminController::class, 'dashboard'])->name('dashboard');
-    Route::resource('blog', \App\Http\Controllers\Admin\BlogController::class);
     Route::resource('jadwal', \App\Http\Controllers\Admin\JadwalController::class);
     Route::resource('kegiatan', \App\Http\Controllers\Admin\KegiatanController::class);
     Route::resource('renungan', \App\Http\Controllers\Admin\RenunganController::class);

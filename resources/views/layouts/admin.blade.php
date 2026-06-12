@@ -44,8 +44,6 @@
             <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Master</a>
               <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
                 <li><a href="{{ route('admin.dashboard') }}"> <i class="icon-home"></i>HOME</a></li>
-                <li><a href="{{ route('admin.blog.create') }}">Posting News </a></li>
-                <li><a href="{{ route('admin.blog.index') }}">Daftar News</a></li>
                 <li><a href="{{ route('admin.jadwal.create') }}">Tambah Jadwal</a></li>
                 <li><a href="{{ route('admin.jadwal.index') }}">Daftar Jadwal</a></li>
                 <li><a href="{{ route('admin.kegiatan.create') }}">Tambah Kegiatan</a></li>

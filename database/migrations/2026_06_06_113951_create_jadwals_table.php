@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('judul');
             $table->string('kategori')->nullable();
             $table->text('konten')->nullable();
-            $table->string('gambar')->nullable();
+            $table->string('flyer')->nullable();
             $table->date('tgl_posting')->nullable();
             $table->string('user')->nullable();
             $table->string('status')->nullable();

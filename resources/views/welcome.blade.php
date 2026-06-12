@@ -144,12 +144,18 @@
                 <div class="col-lg-7">
                     <div class="about_content">
                         <div class="section_title"><h2>Renungan hari ini</h2></div>
+                        @if($renunganHariIni)
                         <div class="about_text">
-                            <h4 align="justify-content-center">Kamu akan dibenci semua orang oleh karena nama-Ku. Namun, orang yang bertahan sampai pada kesudahannya akan diselamatkan</h4>
+                            <h4 align="justify-content-center">{{ $renunganHariIni->judul }}</h4>
                         </div>
                         <div class="button about_button">
-                            <a href="#">Matius 10:22 </a>
+                            <a href="{{ url('renungan') }}">{{ $renunganHariIni->ayat }}</a>
                         </div>
+                        @else
+                        <div class="about_text" style="padding: 20px; background-color: #f8f9fa; color: #6c757d; border-radius: 8px; border-left: 4px solid #17a2b8; margin-top: 20px;">
+                            <h4 style="margin-bottom: 0; font-style: italic;">Renungan hari ini belum diupload</h4>
+                        </div>
+                        @endif
                     </div>
                 </div>
 
@@ -180,7 +186,7 @@
                         <div class="service_text">
                             <div class="service_title trans_200">{{ $data->judul }}</div>
                         </div>
-                        <div class="button dept_button"><a href="{{ url('kegiatan_detail', ['id' => base64_encode($data->kategori)]) }}">Selengkapnya</a></div>
+                        <div class="button dept_button"><a href="{{ url('jadwal/' . $data->id) }}">Selengkapnya</a></div>
                     </div>
                 </div>
                 @endforeach

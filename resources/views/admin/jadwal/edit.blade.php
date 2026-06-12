@@ -20,7 +20,7 @@
                         </ul>
                     </div>
                 @endif
-                <form method="POST" action="{{ route('admin.jadwal.update', $jadwal->id) }}">
+                <form method="POST" action="{{ route('admin.jadwal.update', $jadwal->id) }}" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="form-group row has-success">
@@ -51,6 +51,17 @@
                         <label class="col-sm-2 form-control-label">NAMA YANG POSTING</label>
                         <div class="col-sm-10">
                             <input type="text" name="user" class="form-control is-valid" value="{{ old('user', $jadwal->user) }}">
+                        </div>
+                    </div>
+                    <div class="form-group row has-success">
+                        <label class="col-sm-2 form-control-label">FLYER (FOTO)</label>
+                        <div class="col-sm-10">
+                            <input type="file" name="flyer" class="form-control is-valid">
+                            @if($jadwal->flyer)
+                                <div class="mt-2">
+                                    <img src="{{ asset('img/blog/' . $jadwal->flyer) }}" width="150" alt="Flyer">
+                                </div>
+                            @endif
                         </div>
                     </div>
 
