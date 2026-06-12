@@ -35,12 +35,6 @@
                         </div>
                     </div>
                     <div class="form-group row has-success">
-                        <label class="col-sm-2 form-control-label">Link Gambar</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="alamat" class="form-control is-valid" value="{{ old('alamat', '-') }}" placeholder="Alamat Link Gambar">
-                        </div>
-                    </div>
-                    <div class="form-group row has-success">
                         <label class="col-sm-2 form-control-label">Gambar *</label>
                         <div class="col-sm-10">
                             <input type="file" name="gambar" class="form-control is-valid">

@@ -28,7 +28,7 @@ class JadwalController extends Controller
             'tgl_posting' => 'nullable|date',
             'user' => 'nullable|string',
             'status' => 'nullable|string',
-            'flyer' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'flyer' => 'nullable|file|mimes:jpeg,png,jpg,gif,webp|max:10240',
         ]);
 
         $data = $request->all();
@@ -60,7 +60,7 @@ class JadwalController extends Controller
             'tgl_posting' => 'nullable|date',
             'user' => 'nullable|string',
             'status' => 'nullable|string',
-            'flyer' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'flyer' => 'nullable|file|mimes:jpeg,png,jpg,gif,webp|max:10240',
         ]);
 
         $jadwal = Jadwal::findOrFail($id);

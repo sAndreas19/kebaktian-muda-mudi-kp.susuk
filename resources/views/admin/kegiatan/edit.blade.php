@@ -36,12 +36,6 @@
                         </div>
                     </div>
                     <div class="form-group row has-success">
-                        <label class="col-sm-2 form-control-label">Link Gambar</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="alamat" class="form-control is-valid" value="{{ old('alamat', $kegiatan->alamat) }}">
-                        </div>
-                    </div>
-                    <div class="form-group row has-success">
                         <label class="col-sm-2 form-control-label">GAMBAR SAAT INI</label>
                         <div class="col-sm-10">
                             @if($kegiatan->gambar)

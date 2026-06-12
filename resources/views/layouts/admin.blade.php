@@ -50,6 +50,10 @@
                 <li><a href="{{ route('admin.kegiatan.index') }}">Daftar Kegiatan</a></li>
                 <li><a href="{{ route('admin.renungan.create') }}">Input Renungan</a></li>
                 <li><a href="{{ route('admin.renungan.index') }}">Daftar Renungan</a></li>
+                <li><a href="{{ route('admin.kepengurusan.create') }}">Input Kepengurusan</a></li>
+                <li><a href="{{ route('admin.kepengurusan.index') }}">Daftar Kepengurusan</a></li>
+                <li><a href="{{ route('admin.pengurus.create') }}">Input Pengurus</a></li>
+                <li><a href="{{ route('admin.pengurus.index') }}">Daftar Pengurus</a></li>
               </ul>
             </li>
           </ul>

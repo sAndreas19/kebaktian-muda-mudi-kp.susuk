@@ -3,9 +3,9 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-
 use Illuminate\Support\Facades\View;
 use App\Models\Jadwal;
+use App\Models\Kegiatan;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,8 +23,9 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         View::composer('layouts.front', function ($view) {
-            $recentBlogs = Jadwal::orderBy('tgl_posting', 'desc')->limit(5)->get();
-            $view->with('recentBlogs', $recentBlogs);
+            $recentJadwals = Jadwal::orderBy('tgl_posting', 'desc')->limit(3)->get();
+            $footerKegiatans = Kegiatan::latest()->limit(5)->get();
+            $view->with(compact('recentJadwals', 'footerKegiatans'));
         });
     }
 }

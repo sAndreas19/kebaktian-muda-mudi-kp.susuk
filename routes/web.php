@@ -9,7 +9,11 @@ use App\Http\Controllers\RenunganController;
 use App\Http\Controllers\ContactController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::view('/tentang', 'tentang')->name('tentang');
+Route::get('/tentang', function () {
+    $kepengurusans = \App\Models\Kepengurusan::all();
+    $penguruses = \App\Models\Pengurus::orderBy('divisi')->orderBy('id')->get()->groupBy('divisi');
+    return view('tentang', compact('kepengurusans', 'penguruses'));
+})->name('tentang');
 Route::get('/kegiatan', [KegiatanController::class, 'index'])->name('kegiatan');
 Route::get('/jadwal', [JadwalController::class, 'index'])->name('jadwal.index');
 Route::get('/jadwal/{id}', [JadwalController::class, 'show'])->name('jadwal.show');
@@ -27,6 +31,10 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('jadwal', \App\Http\Controllers\Admin\JadwalController::class);
     Route::resource('kegiatan', \App\Http\Controllers\Admin\KegiatanController::class);
     Route::resource('renungan', \App\Http\Controllers\Admin\RenunganController::class);
+    Route::resource('kepengurusan', \App\Http\Controllers\Admin\KepengurusanController::class);
+    Route::resource('pengurus', \App\Http\Controllers\Admin\PengurusController::class)->parameters([
+        'pengurus' => 'pengurus'
+    ]);
     Route::get('pesan/read', [\App\Http\Controllers\Admin\PesanController::class, 'read'])->name('pesan.read');
     Route::resource('pesan', \App\Http\Controllers\Admin\PesanController::class)->only(['index', 'show', 'destroy']);
 });

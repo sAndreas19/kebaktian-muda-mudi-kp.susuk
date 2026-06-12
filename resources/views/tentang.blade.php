@@ -135,12 +135,18 @@
                             <div class="accordion d-flex flex-row align-items-center"><div>Kepengurusan di KMKS</div></div>
                             <div class="accordion_panel">
                                 <div>
-                                    <p>Panitia Paskah</p>
-                                    <p>Panitia Retreat</p>
-                                    <p>Panitia Hari Ulang Tahun</p>
-                                    <p>Tim Regenerasi</p>
-                                    <p>Tim Pemerhati</p>
-                                    <p>Tim Doa</p>
+                                    @if(isset($kepengurusans) && $kepengurusans->count() > 0)
+                                        @foreach($kepengurusans as $kepengurusan)
+                                            <details style="margin-bottom: 12px; cursor: pointer;" ontoggle="var panel = this.closest('.accordion_panel'); if(panel && panel.style.maxHeight !== '0px') { panel.style.maxHeight = panel.scrollHeight + 'px'; }">
+                                                <summary style="font-weight: bold; outline: none; padding: 5px 0;">{{ $kepengurusan->nama }}</summary>
+                                                @if($kepengurusan->penjelasan)
+                                                    <p style="padding-left: 15px; margin-top: 5px; color: #555; margin-bottom: 5px;">{{ $kepengurusan->penjelasan }}</p>
+                                                @endif
+                                            </details>
+                                        @endforeach
+                                    @else
+                                        <p>Belum ada data kepengurusan.</p>
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -149,38 +155,23 @@
                             <div class="accordion d-flex flex-row align-items-center"><div>Nama-nama Pengurus Persekutuan</div></div>
                             <div class="accordion_panel">
                                 <div>
-                                    <p> Bapak Paulus Tarigan - Pembina</p>
-                                    <hr>
-                                    <p> Badan Pengurus Harian</p>
-                                    <p> Rani Manalu - Koordinator Umum</p>
-                                    <p> Friska Rani Bukit - Wakil Koordinator</p>
-                                    <p> Grecia Lumbantobing - Bendahara</p>
-                                    <hr>
-                                    <p> Komisi Penginjilan</p>
-                                    <p> Anita Simanjuntak - Koordinator Komisi Penginjilan</p>
-                                    <p> Christopher Pakpahan - Anggota Komisi Penginjilan</p>
-                                    <hr>
-                                    <p> Komisi Kelompok Kecil</p>
-                                    <p> Maya Butar-Butar - Komisi Kelompok Kecil</p>
-                                    <p> Martin Hutasoit - Anggota Komisi Kelompok Kecil</p>
-                                    <p> Erna Silaban - Anggota Komisi Kelompok Kecil</p>
-                                    <hr>
-                                    <p> Komisi Doa</p>
-                                    <p> Hasan Lumbantoruan - Koordinator Komisi Doa</p>
-                                    <p> Yusi Sembiring - Anggota Komisi Doa</p>
-                                    <hr>
-                                    <p> Komisi Kebaktian</p>
-                                    <p> Edar Zebua - Koordinator Komisi Kebaktian</p>
-                                    <p> Elisa Ginting - Anggota Komisi Kebaktian</p>
-                                    <hr>
-                                    <p> Komisi Peralatan</p>
-                                    <p> Jeremia Simanjuntak - Koordinator Komisi Peralatan</p>
-                                    <p> Panca Gultom - Anggota Komisi Peralatan</p>
-                                    <hr>
-                                    <p> Komisi Hubungan Masyarakat</p>
-                                    <p> Nora Manurung - Koordinator Komisi Hubungan Masyarakat</p>
-                                    <p> Zeges Sinaga - Anggota Komisi Hubungan Masyarakat</p>
-                                    
+                                    @if(isset($penguruses) && $penguruses->count() > 0)
+                                        @foreach($penguruses as $divisi => $anggota_pengurus)
+                                            <div style="background-color: #f0f0f0; padding: 6px 12px; border-radius: 4px; margin-bottom: 10px;">
+                                                <strong> {{ $divisi ?: 'Lainnya' }} </strong>
+                                            </div>
+                                            <div style="padding-left: 15px; margin-bottom: 15px;">
+                                                @foreach($anggota_pengurus as $pengurus)
+                                                    <p style="margin-bottom: 4px;"> {{ $pengurus->nama }} <span style="color: #666;">- {{ $pengurus->jabatan }}</span></p>
+                                                @endforeach
+                                            </div>
+                                            @if(!$loop->last)
+                                                <hr>
+                                            @endif
+                                        @endforeach
+                                    @else
+                                        <p>Belum ada data pengurus.</p>
+                                    @endif
                                 </div>
                             </div>
                         </div>

@@ -2,7 +2,9 @@
 
 @section('content')
 <div class="card-body">
-    <h3>DAFTAR KEGIATAN</h3>
+    <h3>DAFTAR KEPENGURUSAN KMKS</h3>
+    <a href="{{ route('admin.kepengurusan.create') }}" class="btn btn-primary mb-3">Tambah Kepengurusan</a>
+    
     @if(session('success'))
         <div class="alert alert-success">{{ session('success') }}</div>
     @endif
@@ -12,28 +14,22 @@
             <thead class="bg-primary text-white">
                 <tr>
                     <th>NO</th>
-                    <th>NAMA KEGIATAN</th>
-                    <th>GAMBAR</th>
+                    <th>NAMA KEPENGURUSAN</th>
+                    <th>PENJELASAN</th>
                     <th colspan="2">ACTION</th>
                 </tr>
             </thead>
             <tbody>
-                @forelse($kegiatans as $key => $kegiatan)
+                @forelse($kepengurusans as $key => $kepengurusan)
                 <tr>
-                    <td>{{ $kegiatans->firstItem() + $key }}</td>
-                    <td>{{ $kegiatan->nama }}</td>
+                    <td>{{ $key + 1 }}</td>
+                    <td>{{ $kepengurusan->nama }}</td>
+                    <td>{{ Str::limit($kepengurusan->penjelasan, 50) }}</td>
                     <td>
-                        @if($kegiatan->gambar)
-                            <img src="{{ asset('img/folio/' . $kegiatan->gambar) }}" width="80" alt="Gambar">
-                        @else
-                            Tidak ada
-                        @endif
+                        <a href="{{ route('admin.kepengurusan.edit', $kepengurusan->id) }}" class="btn btn-sm btn-info">EDIT</a>
                     </td>
                     <td>
-                        <a href="{{ route('admin.kegiatan.edit', $kegiatan->id) }}" class="btn btn-sm btn-info">EDIT</a>
-                    </td>
-                    <td>
-                        <form action="{{ route('admin.kegiatan.destroy', $kegiatan->id) }}" method="POST" onsubmit="return confirm('Yakin hapus data ini?')">
+                        <form action="{{ route('admin.kepengurusan.destroy', $kepengurusan->id) }}" method="POST" onsubmit="return confirm('Yakin hapus data ini?')">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-sm btn-danger">DELETE</button>
@@ -47,11 +43,6 @@
                 @endforelse
             </tbody>
         </table>
-    </div>
-
-    <!-- Pagination -->
-    <div class="mt-3">
-        {{ $kegiatans->links() }}
     </div>
 </div>
 @endsection

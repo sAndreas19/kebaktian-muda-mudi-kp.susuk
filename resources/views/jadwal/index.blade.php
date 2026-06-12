@@ -39,18 +39,15 @@
                     
                     @foreach($jadwals as $data)
                     <div class="news_post">
-                        <div class="news_image">
-                            <img src="{{ asset('img/blog/' . $data->flyer) }}" alt="">
-                            <div class="news_date d-flex flex-column align-items-center justify-content-center">
-                                <div class="news_day">Jadwal</div>
-                                <div class="news_month">{{ \Carbon\Carbon::parse($data->tgl_posting)->format('d M') }}</div>
-                            </div>
-                        </div>
+                        
                         <div class="news_body">
                             <div class="news_title"><a href="{{ url('jadwal/' . $data->id) }}">{{ $data->judul }}</a></div>
                             <div class="news_info">
                                 <ul>
-                                    <li class="news_author"><span>Post</span><a href="#"> {{ $data->user }}</a></li>
+                                    <li class="news_author"><span>Post: </span><a href="#"> {{ $data->user }}</a></li>
+                                </ul>
+                                <ul>
+                                    <li class="news_author"><span>Tanggal: </span><a href="#">{{ \Carbon\Carbon::parse($data->tgl_posting)->format('d M Y') }}</a></li>
                                 </ul>
                             </div>
                             <div class="button about_button">

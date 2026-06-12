@@ -20,7 +20,7 @@
                         </ul>
                     </div>
                 @endif
-                <form method="POST" action="{{ route('admin.jadwal.store') }}">
+                <form method="POST" action="{{ route('admin.jadwal.store') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group row has-success">
                         <label class="col-sm-2 form-control-label">HARI</label>

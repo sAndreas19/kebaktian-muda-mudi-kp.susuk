@@ -149,14 +149,11 @@
                         <div class="footer_links footer_column">
                             <div class="footer_title">Daftar Kegiatan</div>
                             <ul>
-                                <li><a href="#">Jam Doa</a></li>
-                                <li><a href="#">Ibadah Kebaktian</a></li>
-                                <li><a href="#">Penginjilan</a></li>
-                                <li><a href="#">Kelompok Kecil</a></li>
-                                <li><a href="#">Ibadah Perayaan Paskah</a></li>
-                                <li><a href="#">Keakraban</a></li>
-                                <li><a href="#">Retreat</a></li>
-                                <li><a href="#">Perayaan HUT KMKS</a></li>
+                                @if(isset($footerKegiatans))
+                                    @foreach($footerKegiatans as $kegiatan)
+                                    <li><a href="{{ url('kegiatan') }}">{{ $kegiatan->nama }}</a></li>
+                                    @endforeach
+                                @endif
                             </ul>
                         </div>
                     </div>

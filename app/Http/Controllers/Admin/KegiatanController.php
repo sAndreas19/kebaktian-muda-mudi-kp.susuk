@@ -25,8 +25,7 @@ class KegiatanController extends Controller
         $request->validate([
             'nama' => 'required|string|max:255',
             'deskripsi' => 'nullable|string',
-            'alamat' => 'nullable|string',
-            'gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'gambar' => 'nullable|file|mimes:jpeg,png,jpg,gif,webp|max:10240',
         ]);
 
         $data = $request->all();
@@ -54,8 +53,7 @@ class KegiatanController extends Controller
         $request->validate([
             'nama' => 'required|string|max:255',
             'deskripsi' => 'nullable|string',
-            'alamat' => 'nullable|string',
-            'gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'gambar' => 'nullable|file|mimes:jpeg,png,jpg,gif,webp|max:10240',
         ]);
 
         $kegiatan = Kegiatan::findOrFail($id);
