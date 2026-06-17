@@ -24,53 +24,6 @@
                                     <div class="home_text">
                                         <p>KMKS (Kebaktian Muda/i Kampung Susuk) adalah sebuah komunitas pelayanan rohani yang lahir dari kerinduan mahasiswa dan muda-mudi untuk membawa terang Kristus di Kampung Susuk. Berdiri sejak tahun 1988, KMKS menjadi wadah persekutuan, pertumbuhan iman, serta pelayanan sosial yang menjangkau tidak hanya kalangan mahasiswa, tetapi juga masyarakat sekitar. Melalui ibadah rutin, doa bersama, penginjilan, dan kegiatan sosial, KMKS hadir sebagai bentuk nyata kasih Tuhan yang terus bekerja di tengah-tengah pergumulan dan tantangan zaman, menjadi sarana bagi generasi muda untuk bertumbuh dan melayani bersama</p>
                                     </div>
-                                    <div class="button home_button">
-                                        <a href="#">GESER>></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slider Item -->
-            <div class="owl-item">
-                <div class="home_slider_background" style="background-image: url({{ asset('img/slide/jam_doa_kmks.jpg') }})"></div>
-                <div class="home_content">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col">
-                                <div class="home_content_inner">
-                                    <div class="home_title"><h1>Ibadah Jam Doa</h1></div>
-                                    <div class="home_text">
-                                        <p></p>
-                                    </div>
-                                    <div class="button home_button">
-                                        <a href="{{ url('jadwal') }}">_belum jadi</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slider Item -->
-            <div class="owl-item">
-                <div class="home_slider_background" style="background-image:url({{ asset('img/slide/kebaktian_kmks.jpg') }})"></div>
-                <div class="home_content">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col">
-                                <div class="home_content_inner">
-                                    <div class="home_title"><h1>Ibadah Kebaktian</h1></div>
-                                    <div class="home_text">
-                                        <p>..</p>
-                                    </div>
-                                    <div class="button home_button">
-                                        <a href="{{ url('jadwal') }}">_Belum jadi</a>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -80,8 +33,6 @@
 
         </div>
 
-        <!-- Slider Progress -->
-        <div class="home_slider_progress"></div>
     </div>
 </div>
 
