@@ -1,7 +1,7 @@
 # Sistem Informasi Persekutuan Muda-Mudi Kampung Susuk (KMKS)
 
-<!-- Note: Gambar screenshot aplikasi akan diperbarui di GitHub nanti -->
-Tempat foto nanti disini
+<img width="1918" height="948" alt="image" src="https://github.com/user-attachments/assets/bc5add05-84bb-4a88-83c7-2bd5fe6b5636" />
+
 
 ## Deskripsi Singkat
 Sistem Informasi KMKS adalah platform berbasis web yang responsif. KMKS (Kebaktian Muda/i Kampung Susuk) merupakan organisasi pelayanan rohani mahasiswa dan pemuda di daerah Medan. Sebelumnya, informasi jadwal ibadah, kegiatan, dan pengumuman dibagikan melalui grup media sosial yang seringkali tertumpuk oleh pesan lain. 
@@ -51,6 +51,5 @@ Proyek ini memberikan solusi terpusat dengan mengintegrasikan semua informasi pe
 ## Panduan Penggunaan
 - **Akses Pengguna Umum:** Pengguna dapat langsung melihat jadwal ibadah, kegiatan, dan renungan harian dari halaman utama (Beranda).
 - **Akses Admin:**
-  - Login menggunakan kredensial admin yang tersedia.
   - Gunakan Dashboard Admin untuk mengelola jadwal ibadah, kegiatan, pengumuman, dan renungan.
   - Semua perubahan yang disimpan akan langsung tampil secara real-time di halaman utama pengguna.
